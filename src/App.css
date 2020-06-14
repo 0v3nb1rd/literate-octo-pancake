@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,83 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* My Custom styles  ---------------------------------------------->> */
+/* * {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+ul,
+li {
+  list-style-type: none;
+}
+.Main-list {
+  display: flex;
+}
+.Main-list li {
+  margin-right: 25px;
+}
+.Main-list li:last-child {
+  margin-right: 0;
+}
+.Main-list a {
+  display: inline-block;
+  padding: 20px;
+  border: 1px solid #007494;
+  border-radius: 5px;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+.Main-list a:hover {
+  background: #61dafb;
+  color: #282c34;
+  border-color: rgb(131, 131, 131);
+} */
+
+.app-wrapper {
+  display: grid;
+  width: 1200px;
+  margin: 0 auto;
+
+  grid-template-areas:
+    "h h"
+    "n m"
+    "f f";
+  grid-template-columns: 2fr 8fr;
+  grid-template-rows: 60px 7fr 3fr;
+  grid-gap: 10px;
+}
+
+.header {
+  grid-area: h;
+  background-color: green;
+}
+.header img {
+  width: 20px;
+}
+
+.nav {
+  grid-area: n;
+  background-color: yellow;
+}
+.main {
+  grid-area: m;
+  background-color: aqua;
+}
+
+.main .main-img {
+  width: 80%;
+  /* height: auto; */
+  /* width: 8fr; */
+  min-width: 100%;
+}
+
+.footer {
+  grid-area: f;
+  background-color: grey;
 }
