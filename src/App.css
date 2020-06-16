@@ -86,3 +86,7 @@ li {
   grid-template-rows: 60px 7fr 3fr;
   grid-gap: 10px;
 }
+
+html {
+  font-size: 18px;
+}

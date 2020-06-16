@@ -1,0 +1,32 @@
+.item {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+.item:last-child {
+  margin-bottom: 0;
+}
+.item a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.item a:hover {
+  background-color: rgb(1, 138, 138);
+  color: #fff;
+}
+.item span {
+  font-size: 1.5rem;
+}
+.item img {
+  width: 80px;
+  height: auto;
+  padding-right: 10px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 25px;
+  transition: all 0.1s ease-in-out;
+}
+.item a:hover img {
+  transform: scale(0.9);
+}
