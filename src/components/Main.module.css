@@ -1,0 +1,11 @@
+.main {
+  grid-area: m;
+  background-color: aqua;
+}
+
+.main .mainImg {
+  width: 80%;
+  /* height: auto; */
+  /* width: 8fr; */
+  min-width: 100%;
+}

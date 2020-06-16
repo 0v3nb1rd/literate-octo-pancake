@@ -86,32 +86,3 @@ li {
   grid-template-rows: 60px 7fr 3fr;
   grid-gap: 10px;
 }
-
-.header {
-  grid-area: h;
-  background-color: green;
-}
-.header img {
-  width: 20px;
-}
-
-.nav {
-  grid-area: n;
-  background-color: yellow;
-}
-.main {
-  grid-area: m;
-  background-color: aqua;
-}
-
-.main .main-img {
-  width: 80%;
-  /* height: auto; */
-  /* width: 8fr; */
-  min-width: 100%;
-}
-
-.footer {
-  grid-area: f;
-  background-color: grey;
-}

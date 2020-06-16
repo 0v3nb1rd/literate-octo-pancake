@@ -1,12 +1,13 @@
 import React from "react";
+import m from "./Main.module.css";
 
 const Main = () => {
   return (
-    <main className="main">
+    <main className={m.main}>
       <img
         src="https://www.imgacademy.co.kr/themes/custom/imgacademy/images/helpbox-contact.jpg"
         alt="image"
-        className="main-img"
+        className={m.mainImg}
       />
       <section className="postname"></section>
     </main>

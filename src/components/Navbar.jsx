@@ -1,11 +1,12 @@
 import React from "react";
+import n from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
-    <nav className="nav">
-      <ul className="nav-list">
+    <nav className={n.nav}>
+      <ul className={n.navList}>
         <li>
-          <a href="#">HTML</a>{" "}
+          <a href="#">HTML</a>
         </li>
         <li>
           <a href="#">CSS/SCSS</a>
