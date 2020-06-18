@@ -1,17 +1,17 @@
 import React from "react";
-import m from "./Main.module.css";
+import s from "./Main.module.css";
 import MyPosts from "./MyPosts/MyPosts";
 
 const Main = () => {
   return (
-    <main className={m.main}>
+    <div className={s.home}>
       <img
         src="https://www.imgacademy.co.kr/themes/custom/imgacademy/images/helpbox-contact.jpg"
         alt="backgorund"
-        className={m.mainImg}
+        className={s.homeImg}
       />
       <MyPosts />
-    </main>
+    </div>
   );
 };
 

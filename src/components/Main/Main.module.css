@@ -1,9 +1,10 @@
-.main {
+/* .main {
   grid-area: m;
   background-color: aqua;
 }
+*/
 
-.main .mainImg {
+.homeImg {
   width: 80%;
   min-width: 100%;
 }

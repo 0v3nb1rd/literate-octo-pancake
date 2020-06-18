@@ -80,13 +80,23 @@ li {
 
   grid-template-areas:
     "h h"
-    "n m"
+    "n c"
     "f f";
   grid-template-columns: 2fr 8fr;
-  grid-template-rows: 60px 7fr 3fr;
+  grid-template-rows: 60px 7fr 250px;
   grid-gap: 10px;
 }
 
 html {
   font-size: 18px;
 }
+
+.app-content {
+  grid-area: c;
+  background-color: cornflowerblue;
+}
+
+/* .app-content main {
+  width: 80%;
+  min-width: 100%;
+} */
