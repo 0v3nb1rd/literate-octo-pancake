@@ -1,0 +1,32 @@
+.postItem {
+  display: flex;
+  font-size: 1.5rem;
+}
+.postInfo {
+  border: 1px solid #000;
+}
+.postDescription {
+  display: inline-block;
+  border: 1px solid #fdfdfd;
+}
+
+.postInfo img {
+  display: block;
+}
+
+.postInfo span {
+  display: block;
+  text-align: center;
+}
+
+.postItem:last-child {
+  margin-bottom: 0;
+}
+.postItem img {
+  width: 80px;
+  height: auto;
+  padding-right: 10px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 25px;
+  transition: all 0.1s ease-in-out;
+}

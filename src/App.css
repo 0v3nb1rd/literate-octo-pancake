@@ -73,6 +73,24 @@ li {
   border-color: rgb(131, 131, 131);
 } */
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+
 .app-wrapper {
   display: grid;
   width: 1200px;
@@ -87,16 +105,7 @@ li {
   grid-gap: 10px;
 }
 
-html {
-  font-size: 18px;
-}
-
 .app-content {
   grid-area: c;
   background-color: cornflowerblue;
 }
-
-/* .app-content main {
-  width: 80%;
-  min-width: 100%;
-} */

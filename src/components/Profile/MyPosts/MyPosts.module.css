@@ -1,0 +1,34 @@
+.myPosts {
+  display: inline-block;
+  padding: 10px;
+}
+.addPost {
+  width: 250px;
+  margin-bottom: 25px;
+}
+.textArea {
+  width: 100%;
+  display: block;
+  resize: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: lightgreen;
+  color: #fff;
+  font-size: 20px;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.postList {
+  padding-left: 25px;
+}

@@ -2,3 +2,41 @@
   grid-area: n;
   background-color: yellow;
 }
+.navList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin-top: 50px;
+  text-align: center;
+}
+.navItem {
+  width: 150px;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.navItem:last-child {
+  margin-top: 50px;
+}
+
+.navItem a {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none;
+  background-color: #fff;
+  border-radius: 100px;
+  border-bottom: 1px dotted #000;
+  width: 100%;
+  color: rgb(77, 77, 77);
+  transition: all 0.3s ease-in-out;
+}
+.navItem a:hover {
+  background-color: rgb(255, 221, 221);
+}
+
+.navItem .activeLink {
+  background-color: rgb(253, 197, 197);
+  transform: scale(1.1);
+  color: #000;
+}
