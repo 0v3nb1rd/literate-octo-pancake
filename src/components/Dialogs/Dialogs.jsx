@@ -1,38 +1,24 @@
 import React from "react";
 import s from "./Dialogs.module.css";
-import { NavLink } from "react-router-dom";
+import DialogItem from "./DialogItem/DialogItem";
+import Messages from "./Message/Message";
 
-const DialogItem = (props) => {
-  return (
-    <li className={s.userItem}>
-      <NavLink to={`/dialogs/${props.id}`}>{props.name}</NavLink>
-    </li>
-  );
-};
+const Dialogs = (props) => {
+  let dialogsElements = props.state.dialogs.map((d) => (
+    <DialogItem id={d.id} name={d.name} key={d.id} />
+  ));
+  let messagesElements = props.state.messages.map((m) => (
+    <Messages message={m.message} key={m.id} />
+  ));
 
-const Messages = (props) => {
-  return <li className={s.userMessage}>{props.message}</li>;
-};
-
-const Dialogs = () => {
   return (
     <div className={s.content}>
       <section className={s.users}>
-        <ul className={s.userList}>
-          <DialogItem id="1" name="Nazar" />
-          <DialogItem id="2" name="Ira" />
-          <DialogItem id="3" name="Ylia" />
-          <DialogItem id="4" name="Oleg" />
-          <DialogItem id="5" name="Volodya" />
-          <DialogItem id="6" name="Ivan" />
-        </ul>
+        <ul className={s.userList}>{dialogsElements}</ul>
       </section>
+
       <section className={s.messages}>
-        <ul>
-          <Messages message="Hello" />
-          <Messages message="How are you?" />
-          <Messages message="I'm fine thank you." />
-        </ul>
+        <ul>{messagesElements}</ul>
       </section>
     </div>
   );

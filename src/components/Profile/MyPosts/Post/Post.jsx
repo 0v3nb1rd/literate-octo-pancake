@@ -9,7 +9,9 @@ const Post = (props) => {
           src="https://i1.wp.com/sova.ponominalu.ru/wp-content/uploads/2019/08/ava-max.jpg?fit=2000%2C1333&ssl=1"
           alt="post"
         />
-        <span>{props.number}</span>
+        <span role="img" aria-label="heart">
+          {props.number}&#128156;
+        </span>
       </span>
 
       <span className={s.postDescription}>{props.message}</span>

@@ -1,21 +1,28 @@
 .postItem {
   display: flex;
+  padding: 5px;
   font-size: 1.5rem;
+  margin-bottom: 15px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  border-bottom-right-radius: 10px;
+  border-color: #fff;
 }
 .postInfo {
-  border: 1px solid #000;
+  width: 80px;
 }
 .postDescription {
   display: inline-block;
-  border: 1px solid #fdfdfd;
+  align-self: center;
+  padding-left: 10px;
 }
 
 .postInfo img {
-  display: block;
 }
 
 .postInfo span {
   display: block;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -23,9 +30,8 @@
   margin-bottom: 0;
 }
 .postItem img {
-  width: 80px;
+  width: 100%;
   height: auto;
-  padding-right: 10px;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 25px;
   transition: all 0.1s ease-in-out;
