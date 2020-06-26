@@ -11,6 +11,13 @@ const Dialogs = (props) => {
     <Messages message={m.message} key={m.id} />
   ));
 
+  const newInput = React.createRef();
+  const sendForm = () => {
+    let text = newInput.current.value;
+    alert("Succes");
+    console.log(text);
+  };
+
   return (
     <div className={s.content}>
       <section className={s.users}>
@@ -20,6 +27,12 @@ const Dialogs = (props) => {
       <section className={s.messages}>
         <ul>{messagesElements}</ul>
       </section>
+      <div className="test">
+        <textarea ref={newInput} cols="30" rows="10"></textarea>
+        <button onClick={sendForm} type="submit">
+          send
+        </button>
+      </div>
     </div>
   );
 };

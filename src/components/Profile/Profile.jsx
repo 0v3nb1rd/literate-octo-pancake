@@ -4,7 +4,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import PostInfo from "./PostsInfo/PostsInfo";
 
 const Profile = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <div className={s.profile}>
       <PostInfo />

@@ -38,3 +38,7 @@
   border-bottom-left-radius: 5px;
   padding: 20px;
 }
+
+.test {
+  display: block;
+}
