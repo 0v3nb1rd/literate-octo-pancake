@@ -19,12 +19,7 @@ const App = (props) => {
       <main className="app-content">
         <Route
           render={() => (
-            <Profile
-              profilePage={props.state.profilePage}
-              // addPost={props.store.addPost}
-              // updateNewPostText={props.updateNewPostText}
-              store={props.store}
-            />
+            <Profile state={props.store.getState()} store={props.store} />
           )}
           path="/profile"
         />

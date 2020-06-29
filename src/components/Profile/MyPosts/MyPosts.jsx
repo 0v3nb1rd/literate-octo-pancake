@@ -4,17 +4,18 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
   // console.log(props);
-  const postElement = props.postData.map((post) => (
+  const postElement = props.profilePage.postData.map((post) => (
     <Post number={post.id} message={post.message} key={post.id} />
   ));
   const newPostElement = React.createRef();
 
   const addPost = () => {
-    props.addPost();
+    props.store.dispatch({ type: "ADD-POST" });
   };
   const onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    const action = { type: "UPDATE-NEW-POST-TEXT", newText: text };
+    props.store.dispatch(action);
   };
 
   return (
@@ -24,7 +25,7 @@ const MyPosts = (props) => {
           className={s.textArea}
           rows="5"
           onChange={onPostChange}
-          value={props.newPostText}
+          value={props.profilePage.newPostText}
           ref={newPostElement}
         />
         <button className={s.btn} type="submit" onClick={addPost}>

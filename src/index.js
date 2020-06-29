@@ -11,12 +11,7 @@ const renderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <App
-          state={state}
-          store={store}
-          // addPost={state.addPost}
-          // updateNewPostText={state.updateNewPostText}
-        />
+        <App state={state} store={store} />
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")
