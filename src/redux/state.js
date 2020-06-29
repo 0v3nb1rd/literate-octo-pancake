@@ -1,3 +1,5 @@
+import { renderEntireTree } from "../render";
+
 const state = {
   profilePage: {
     postData: [
@@ -7,6 +9,7 @@ const state = {
       { id: "4", message: "Hello there, this is the first post" },
       { id: "5", message: "Testing messages" },
     ],
+    newPostText: "",
   },
   dialogsPage: {
     dialogs: [
@@ -25,4 +28,22 @@ const state = {
     ],
   },
 };
+
+window.state = state;
+
+export const addPost = () => {
+  const newPost = {
+    id: 6,
+    message: state.profilePage.newPostText,
+  };
+  state.profilePage.postData.push(newPost);
+  state.profilePage.newPostText = "";
+  renderEntireTree(state);
+};
+
+export const updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  renderEntireTree(state);
+};
+
 export default state;

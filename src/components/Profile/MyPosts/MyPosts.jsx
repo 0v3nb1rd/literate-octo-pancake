@@ -3,24 +3,31 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  let postElement = props.postData.map((post) => (
+  // console.log(props);
+  const postElement = props.postData.map((post) => (
     <Post number={post.id} message={post.message} key={post.id} />
   ));
-  let newPostElement = React.createRef();
+  const newPostElement = React.createRef();
 
-  const createPost = () => {
-    let text = newPostElement.current.value;
-    console.log(text);
+  const addPost = () => {
+    props.addPost();
   };
+  const onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
+  };
+
   return (
     <section className={s.myPosts}>
       <div className={s.addPost}>
         <textarea
           className={s.textArea}
           rows="5"
+          onChange={onPostChange}
+          value={props.newPostText}
           ref={newPostElement}
-        ></textarea>
-        <button className={s.btn} type="submit" onClick={createPost}>
+        />
+        <button className={s.btn} type="submit" onClick={addPost}>
           submit
         </button>
       </div>
