@@ -11,8 +11,8 @@ const Profile = (props) => {
       <MyPosts
         postData={props.profilePage.postData}
         newPostText={props.profilePage.newPostText}
-        addPost={props.addPost}
-        updateNewPostText={props.updateNewPostText}
+        addPost={props.store.addPost.bind(props.store)}
+        updateNewPostText={props.store.updateNewPostText.bind(props.store)}
       />
     </div>
   );

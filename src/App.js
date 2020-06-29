@@ -11,6 +11,7 @@ import Settngs from "./components/Settngs/Settngs";
 import Music from "./components/Music/Music";
 
 const App = (props) => {
+  // console.log(props);
   return (
     <div className="app-wrapper">
       <Header />
@@ -20,8 +21,9 @@ const App = (props) => {
           render={() => (
             <Profile
               profilePage={props.state.profilePage}
-              addPost={props.addPost}
-              updateNewPostText={props.updateNewPostText}
+              // addPost={props.store.addPost}
+              // updateNewPostText={props.updateNewPostText}
+              store={props.store}
             />
           )}
           path="/profile"
