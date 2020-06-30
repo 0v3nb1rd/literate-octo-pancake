@@ -1,6 +1,10 @@
 import React from "react";
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
+import {
+  addPostActionCreator,
+  onPostChangeActionCreator,
+} from "../../../redux/store";
 
 const MyPosts = (props) => {
   // console.log(props);
@@ -10,12 +14,11 @@ const MyPosts = (props) => {
   const newPostElement = React.createRef();
 
   const addPost = () => {
-    props.store.dispatch({ type: "ADD-POST" });
+    props.store.dispatch(addPostActionCreator());
   };
   const onPostChange = () => {
     let text = newPostElement.current.value;
-    const action = { type: "UPDATE-NEW-POST-TEXT", newText: text };
-    props.store.dispatch(action);
+    props.store.dispatch(onPostChangeActionCreator(text));
   };
 
   return (

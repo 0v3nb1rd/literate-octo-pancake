@@ -68,6 +68,12 @@ const store = {
     }
   },
 };
+export const addPostActionCreator = () => ({ type: "ADD-POST" });
+export const onPostChangeActionCreator = (text) => ({
+  type: "UPDATE-NEW-POST-TEXT",
+  newText: text,
+});
+
 export default store;
 
 window.store = store;
