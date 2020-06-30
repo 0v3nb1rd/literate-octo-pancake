@@ -30,19 +30,19 @@ const store = {
   _callSubscriber() {
     console.log("no subscribers");
   },
-  _addPost() {
-    const newPost = {
-      id: 6,
-      message: this._state.profilePage.newPostText,
-    };
-    this._state.profilePage.postData.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._callSubscriber(this._state);
-  },
-  _updateNewPostText(newTxt) {
-    this._state.profilePage.newPostText = newTxt;
-    this._callSubscriber(this._state);
-  },
+  // _addPost() {
+  //   const newPost = {
+  //     id: 6,
+  //     message: this._state.profilePage.newPostText,
+  //   };
+  //   this._state.profilePage.postData.push(newPost);
+  //   this._state.profilePage.newPostText = "";
+  //   this._callSubscriber(this._state);
+  // },
+  // _updateNewPostText(newTxt) {
+  //   this._state.profilePage.newPostText = newTxt;
+  //   this._callSubscriber(this._state);
+  // },
 
   getState() {
     return this._state;
@@ -53,9 +53,18 @@ const store = {
 
   dispatch(action) {
     if (action.type === "ADD-POST") {
-      this._addPost();
+      const newPost = {
+        id: 6,
+        message: this._state.profilePage.newPostText,
+      };
+      this._state.profilePage.postData.push(newPost);
+      this._state.profilePage.newPostText = "";
+      this._callSubscriber(this._state);
+      // this._addPost();
     } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-      this._updateNewPostText(action.newText);
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+      // this._updateNewPostText(action.newText);
     }
   },
 };
