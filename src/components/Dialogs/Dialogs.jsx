@@ -2,8 +2,14 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import Messages from "./Message/Message";
+import {
+  sendMessageCreator,
+  updateNewMessageBodyCreator,
+} from "../../redux/store";
 
 const Dialogs = (props) => {
+  // console.log(props);
+
   let dialogsElements = props.state.dialogs.map((d) => (
     <DialogItem id={d.id} name={d.name} key={d.id} />
   ));
@@ -11,11 +17,13 @@ const Dialogs = (props) => {
     <Messages message={m.message} key={m.id} />
   ));
 
-  const newInput = React.createRef();
+  // const newInput = React.createRef();
   const sendForm = () => {
-    let text = newInput.current.value;
-    alert("Succes");
-    console.log(text);
+    props.store.dispatch(sendMessageCreator());
+  };
+  let onPostChange = (e) => {
+    const body = e.target.value;
+    props.store.dispatch(updateNewMessageBodyCreator(body));
   };
 
   return (
@@ -28,7 +36,11 @@ const Dialogs = (props) => {
         <ul>{messagesElements}</ul>
       </section>
       <div className="test">
-        <textarea ref={newInput} cols="30" rows="10"></textarea>
+        <textarea
+          onChange={onPostChange}
+          value={props.state.newMessageBody}
+          placeholder="Enter your message"
+        ></textarea>
         <button onClick={sendForm} type="submit">
           send
         </button>

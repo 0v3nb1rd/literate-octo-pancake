@@ -24,7 +24,12 @@ const App = (props) => {
           path="/profile"
         />
         <Route
-          render={() => <Dialogs state={props.state.dialogsPage} />}
+          render={() => (
+            <Dialogs
+              state={props.store.getState().dialogsPage}
+              store={props.store}
+            />
+          )}
           path="/dialogs"
         />
         <Route component={News} path="/news" />

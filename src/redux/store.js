@@ -1,7 +1,7 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
-// const SEND_MESSAGE = "SEND-MESSAGE";
+const SEND_MESSAGE = "SEND-MESSAGE";
 
 const store = {
   _state: {
@@ -74,6 +74,14 @@ const store = {
     } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
       this._state.dialogsPage.newMessageBody = action.body;
       this._callSubscriber(this._state);
+    } else if (action.type === SEND_MESSAGE) {
+      const newMessage = {
+        id: 6,
+        message: this._state.dialogsPage.newMessageBody,
+      };
+      this._state.dialogsPage.messages.push(newMessage);
+      this._state.dialogsPage.newMessageBody = "";
+      this._callSubscriber(this._state);
     }
   },
 };
@@ -81,6 +89,12 @@ export const addPostActionCreator = () => ({ type: ADD_POST });
 export const onPostChangeActionCreator = (text) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: text,
+});
+
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
+export const updateNewMessageBodyCreator = (body) => ({
+  type: UPDATE_NEW_MESSAGE_BODY,
+  body: body,
 });
 
 export default store;
