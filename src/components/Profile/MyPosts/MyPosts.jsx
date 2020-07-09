@@ -3,7 +3,7 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-]  const newPostElement = React.createRef();
+  const newPostElement = React.createRef();
   const postsElements = props.posts.map((post) => (
     <Post number={post.id} message={post.message} key={post.id} />
   ));
