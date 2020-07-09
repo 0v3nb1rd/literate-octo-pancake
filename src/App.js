@@ -5,10 +5,10 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
-import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Settngs from "./components/Settngs/Settngs";
 import Music from "./components/Music/Music";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
   // console.log(props);
@@ -17,19 +17,9 @@ const App = (props) => {
       <Header />
       <Navbar />
       <main className="app-content">
+        <Route render={() => <Profile store={props.store} />} path="/profile" />
         <Route
-          render={() => (
-            <Profile state={props.store.getState()} store={props.store} />
-          )}
-          path="/profile"
-        />
-        <Route
-          render={() => (
-            <Dialogs
-              state={props.store.getState().dialogsPage}
-              store={props.store}
-            />
-          )}
+          render={() => <DialogsContainer store={props.store} />}
           path="/dialogs"
         />
         <Route component={News} path="/news" />
