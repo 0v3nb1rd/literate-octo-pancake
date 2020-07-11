@@ -10,18 +10,14 @@ import Settngs from "./components/Settngs/Settngs";
 import Music from "./components/Music/Music";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
-const App = (props) => {
-  // console.log(props);
+const App = () => {
   return (
     <div className="app-wrapper">
       <Header />
       <Navbar />
       <main className="app-content">
-        <Route render={() => <Profile store={props.store} />} path="/profile" />
-        <Route
-          render={() => <DialogsContainer store={props.store} />}
-          path="/dialogs"
-        />
+        <Route render={() => <Profile />} path="/profile" />
+        <Route render={() => <DialogsContainer />} path="/dialogs" />
         <Route component={News} path="/news" />
         <Route component={Music} path="/music" />
         <Route component={Settngs} path="/settings" />
