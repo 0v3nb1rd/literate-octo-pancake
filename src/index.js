@@ -12,7 +12,7 @@ const renderEntireTree = (state) => {
     <React.StrictMode>
       <BrowserRouter>
         <Provider store={store}>
-          <App state={state} store={store} />
+          <App />
         </Provider>
       </BrowserRouter>
     </React.StrictMode>,
