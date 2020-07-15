@@ -26,6 +26,16 @@ const Navbar = () => {
             Music
           </NavLink>
         </li>
+
+        <li className={s.navItem}>
+          <NavLink
+            to="/users"
+            activeClassName={s.activeLink}
+            className={s.users}
+          >
+            Find Users
+          </NavLink>
+        </li>
         <li className={s.navItem}>
           <NavLink to="/settings" activeClassName={s.activeLink}>
             Settings

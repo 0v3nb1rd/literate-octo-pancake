@@ -1,0 +1,56 @@
+.user {
+  display: flex;
+  padding: 5px;
+  /* border: 1px solid #000; */
+  /* box-sizing: border-box; */
+}
+.user_left {
+  display: block;
+}
+.user_left img {
+  width: 100px;
+}
+.user_left button {
+  display: block;
+  width: 100%;
+}
+
+.user_right {
+  position: relative;
+  display: flex;
+  /* height: 100%; */
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #000;
+  width: 100%;
+  margin: 10px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.userName {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.userStatus {
+  margin-top: auto;
+  color: rgb(61, 61, 61);
+}
+
+.user_location {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: right;
+  font-weight: 500;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.user_location span {
+  margin-top: 10px;
+  display: block;
+}

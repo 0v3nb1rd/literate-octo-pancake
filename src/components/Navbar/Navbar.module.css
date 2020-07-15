@@ -31,6 +31,9 @@
   color: rgb(77, 77, 77);
   transition: all 0.3s ease-in-out;
 }
+.navItem a.users {
+  margin: 20px 0;
+}
 .navItem a:hover {
   background-color: rgb(255, 221, 221);
 }

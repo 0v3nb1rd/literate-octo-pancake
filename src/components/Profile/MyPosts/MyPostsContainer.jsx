@@ -1,4 +1,3 @@
-import React from "react";
 import {
   addPostActionCreator,
   onPostChangeActionCreator,
@@ -7,12 +6,14 @@ import MyPosts from "./MyPosts";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
+  // console.log(state);
   return {
     posts: state.profilePage.postData,
     newPostText: state.profilePage.newPostText,
   };
 };
 const mapDispatchToProps = (dispatch) => {
+  // console.log(dispatch);
   return {
     addPost: () => {
       dispatch(addPostActionCreator());
