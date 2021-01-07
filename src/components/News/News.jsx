@@ -1,8 +1,11 @@
-import React from "react";
-import s from "./News.module.css";
+import React from 'react';
 
-const News = (props) => {
-  return <div className={s.content}>News</div>;
+const News = () => {
+  return (
+    <div>
+      <h1>News text</h1>
+    </div>
+  );
 };
 
 export default News;

@@ -1,74 +1,79 @@
-.user {
+h1 {
+  margin-bottom: 20px;
+}
+.list {
   display: flex;
-  padding: 5px;
-  /* border: 1px solid #000; */
-  /* box-sizing: border-box; */
-}
-.user_left {
-  display: block;
-}
-.user_left img {
-  width: 100px;
-}
-.user_left button {
-  display: block;
-  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.user_right {
-  position: relative;
-  display: flex;
-  /* height: 100%; */
-  flex-direction: column;
-  padding: 10px;
-  border: 1px solid #000;
-  width: 100%;
+.itm {
   margin: 10px;
-  margin-right: 20px;
+  width: calc(100% / 10 - 20px);
+  height: auto;
+}
+.itm img {
+  max-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
   border-radius: 10px;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
-
-.userName {
-  font-size: 20px;
-  line-height: 20px;
-  font-weight: 500;
-}
-.userStatus {
-  margin-top: auto;
-  color: rgb(61, 61, 61);
-}
-
-.user_location {
-  position: absolute;
-  right: 0;
-  margin-right: 20px;
-  font-size: 20px;
-  line-height: 20px;
-  text-align: right;
-  font-weight: 500;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.user_location span {
+.info {
   margin-top: 10px;
+}
+.info span {
   display: block;
+  margin-bottom: 10px;
+}
+.info button {
+  display: block;
+  padding: 5px 10px;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.info button:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 1);
+}
+button.unfollow {
+  background-color: rgba(255, 255, 255, 1);
+}
+button.follow {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .pagination {
-  display: block;
-  margin-top: 10px;
-  padding: 5px;
+  display: flex;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px;
+  margin: 0 auto;
 }
-
-.pagination button {
-  margin: 2px;
-  padding: 5px;
+.pagination li {
+  margin: 0 10px;
+}
+.pagination li:not(:last-child):nth-child(n + 6) {
+  display: none;
+}
+.pagination li.active {
+  background-color: fuchsia;
+}
+.pagination li {
+  display: block;
   cursor: pointer;
+  background-color: #333646;
+  padding: 5px 10px;
+  transition: all 0.2s ease-in-out;
 }
-
-.selectedPage {
-  font-weight: 800;
-  background-color: bisque;
+.pagination li:hover {
+  color: #333646;
+  background-color: #fff;
 }

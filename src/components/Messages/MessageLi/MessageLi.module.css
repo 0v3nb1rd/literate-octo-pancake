@@ -1,0 +1,13 @@
+.msg {
+  display: block;
+  width: 250px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff;
+  color: dimgrey;
+}
+.msg:nth-child(even) {
+  margin-left: auto;
+}

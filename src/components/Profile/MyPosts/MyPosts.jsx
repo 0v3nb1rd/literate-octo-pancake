@@ -1,37 +1,36 @@
-import React from "react";
-import s from "./MyPosts.module.css";
-import Post from "./Post/Post";
+import React from 'react';
+import css from './MyPosts.module.css';
+import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  const newPostElement = React.createRef();
-  const postsElements = props.posts.map((post) => (
-    <Post number={post.id} message={post.message} key={post.id} />
-  ));
-  const addPost = () => {
-    props.addPost();
+  let onPostChange = (e) => {
+    props.updateText(e.target.value);
   };
-
-  const onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.updatePostsText(text);
+  let onAddPost = (e) => {
+    e.preventDefault();
+    props.addNewPost();
   };
-
   return (
-    <section className={s.myPosts}>
-      <div className={s.addPost}>
-        <textarea
-          className={s.textArea}
-          rows="5"
-          onChange={onPostChange}
-          value={props.newPostText}
-          ref={newPostElement}
-        />
-        <button className={s.btn} type="submit" onClick={addPost}>
-          submit
-        </button>
-      </div>
-      <ul className={s.postList}>{postsElements}</ul>
-    </section>
+    <div className="container">
+      <form className={css.addPost}>
+        <fieldset>
+          <legend>Add post</legend>
+          <textarea
+            rows="4"
+            onChange={onPostChange}
+            value={props.state.newTxt}
+            placeholder="Add some text..."
+          />
+          <input onClick={onAddPost} type="submit" value="add post" />
+        </fieldset>
+      </form>
+
+      <ul className={css.posts}>
+        {props.state.dataPosts.map((el) => (
+          <Post txt={el.txt} key={el.id} />
+        ))}
+      </ul>
+    </div>
   );
 };
 

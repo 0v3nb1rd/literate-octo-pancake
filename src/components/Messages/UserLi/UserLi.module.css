@@ -1,0 +1,46 @@
+.userBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 20px;
+}
+.link {
+  display: inline-block;
+  width: 100px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.link img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+}
+.info span {
+  text-align: center;
+  margin: 8px 0;
+  font-size: 1.5rem;
+}
+.info span:nth-child(1) {
+  color: greenyellow;
+}
+.info span:nth-child(2) {
+  color: tomato;
+  font-style: italic;
+}
+
+.name {
+  display: block;
+  margin-top: 5px;
+  text-align: left;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-transform: capitalize;
+}

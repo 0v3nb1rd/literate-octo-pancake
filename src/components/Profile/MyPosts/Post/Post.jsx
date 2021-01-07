@@ -1,20 +1,15 @@
-import React from "react";
-import s from "./Post.module.css";
+import React from 'react';
+import css from './Post.module.css';
 
 const Post = (props) => {
+  // console.log(props);
   return (
-    <li className={s.postItem}>
-      <span className={s.postInfo}>
-        <img
-          src="https://i1.wp.com/sova.ponominalu.ru/wp-content/uploads/2019/08/ava-max.jpg?fit=2000%2C1333&ssl=1"
-          alt="post"
-        />
-        <span role="img" aria-label="heart">
-          {props.number}&#128156;
-        </span>
-      </span>
-
-      <span className={s.postDescription}>{props.message}</span>
+    <li className={css.itm}>
+      <img
+        src="https://p7.hiclipart.com/preview/609/846/439/discord-computer-icons-logo-computer-software-avatar.jpg"
+        alt="figura"
+      />
+      <span>{props.txt}</span>
     </li>
   );
 };

@@ -1,15 +1,15 @@
-import React from "react";
-import s from "./Profile.module.css";
-// import MyPosts from "./MyPosts/MyPosts";
-import PostInfo from "./PostsInfo/PostsInfo";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import React from 'react';
+import css from './Profile.module.css';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
-const Profile = () => {
+const Profile = (props) => {
+  // console.log(props);
   return (
-    <div className={s.profile}>
-      <PostInfo />
+    <section className={css.profile}>
+      <ProfileInfo profile={props.profile} />
       <MyPostsContainer />
-    </div>
+    </section>
   );
 };
 

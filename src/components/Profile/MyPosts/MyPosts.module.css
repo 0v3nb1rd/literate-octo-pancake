@@ -1,34 +1,44 @@
-.myPosts {
-  display: inline-block;
-  padding: 10px;
+.posts {
+  margin-top: 25px;
 }
-.addPost {
-  width: 250px;
-  margin-bottom: 25px;
+
+/* ------------- AddPost component ---------------- */
+.addPost fieldset {
+  position: relative;
+  border: none;
+  padding: 0 25px;
 }
-.textArea {
-  width: 100%;
+.addPost legend {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.addPost textarea {
   display: block;
+  width: 100%;
+  border-radius: 8px;
+  outline: none;
+  padding: 10px;
+  font-size: 1rem;
+  font-style: italic;
   resize: none;
-  outline: none;
-  border-radius: 5px;
-  padding: 5px;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 10px;
 }
 
-.btn {
+.addPost textarea:focus {
+  border-color: rgb(89, 252, 56);
+  transform: scale(1.005);
+}
+
+.addPost input[type='submit'] {
   display: block;
-  width: 100%;
-  margin-top: 5px;
-  padding: 10px;
-  background-color: lightgreen;
-  color: #fff;
-  font-size: 20px;
-  outline: none;
-  border: 0;
+  width: 99%;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 8px;
+  border: none;
+  background-color: #eb7457;
   cursor: pointer;
-  border-radius: 5px;
-}
-
-.postList {
-  padding-left: 25px;
 }

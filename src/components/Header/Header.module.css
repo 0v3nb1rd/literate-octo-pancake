@@ -1,9 +1,61 @@
 .header {
-  grid-area: h;
-  background-color: rgb(122, 235, 122);
-  padding-left: 10px;
+  padding: 40px 0 25px 40px;
+  /* width: 25vmin; */
+  max-width: 300px;
+  min-width: 180px;
 }
-.header img {
-  margin: 5px;
-  width: 50px;
+
+.header li a {
+  position: relative;
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 10px 25px 10px 40px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+.header li a::before {
+  font-family: FontAwesome;
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  display: block;
+  transition: all 0.3s ease;
+}
+.header li:nth-child(1) a::before {
+  content: '\f121';
+}
+.header li:nth-child(2) a::before {
+  content: '\f1d8';
+}
+.header li:nth-child(3) a::before {
+  content: '\f1ea';
+}
+.header li:nth-child(4) a::before {
+  content: '\f001';
+}
+.header li:nth-child(5) a::before {
+  content: '\f02e';
+}
+.header li:nth-child(6) a::before {
+  content: '\f007';
+}
+.header li a::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s ease;
+}
+.header li a.active::after,
+.header li a:hover::after {
+  right: 0;
+  top: 10px;
+  display: block;
+  height: 50%;
+  border-right: 5px solid red;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.header li a.active,
+.header li a:hover {
+  color: rgba(255, 255, 255, 1);
 }

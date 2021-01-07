@@ -1,0 +1,64 @@
+.inner {
+  display: flex;
+  width: 100%;
+}
+.box {
+  display: inline-block;
+  /* border: 1px solid #000; */
+}
+.boxFirst {
+  width: calc(20% - 20px);
+  background-color: #282a34;
+  border-top-left-radius: 20px;
+}
+.boxSec {
+  display: inline-block;
+  width: calc(70% - 20px);
+  padding-top: 20px;
+}
+
+/* Secondary */
+.list {
+  padding: 40px 50px;
+}
+
+/* ------------- Add message Form ----------------- */
+.addPost fieldset {
+  position: relative;
+  border: none;
+  padding: 0 25px;
+}
+.addPost legend {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.addPost textarea {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  outline: none;
+  padding: 10px;
+  font-size: 1rem;
+  font-style: italic;
+  resize: none;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.addPost textarea:focus {
+  border-color: rgb(89, 252, 56);
+  transform: scale(1.005);
+}
+
+.addPost input[type='submit'] {
+  display: block;
+  width: 99%;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 8px;
+  border: none;
+  background-color: #eb7457;
+  cursor: pointer;
+}

@@ -1,53 +1,106 @@
-import profileReducer from "./profile-reducer";
-import dialogsReducer from "./dialogs-reducer";
+import profileReducer from './profile-reducer';
+import messageReducer from './messages-reducer';
+
+const ADD_POST = 'ADD-POST';
+const UPDATE_TEXT = 'UPDATE-NEW-TEXT';
+
+const ADD_MESSAGE_TXT = 'ADD-MESSAGE-TXT';
+const UPDATE_MESSAGE_TXT = 'UPDATE-MESSAGE-TXT';
 
 const store = {
   _state: {
-    profilePage: {
-      postData: [
-        { id: "1", message: "Hello there, this is the first post" },
-        { id: "2", message: "This is the second post" },
-        { id: "3", message: "Some different text" },
-        { id: "4", message: "Hello there, this is the first post" },
-        { id: "5", message: "Testing messages" },
+    profile: {
+      onlineUsers: [
+        {
+          id: 1,
+          name: 'Nazar Petrow',
+        },
+        {
+          id: 2,
+          name: 'John Doe',
+        },
+        {
+          id: 3,
+          name: 'Gilerme Donaldinyo',
+        },
       ],
-      newPostText: "",
+      dataPosts: [
+        {
+          id: 1,
+          txt: 'Some text here',
+        },
+        {
+          id: 2,
+          txt:
+            'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, cupiditate.',
+        },
+        {
+          id: 3,
+          txt: 'Lorem ipsum dolor sit, amet consectetur adipisicing.',
+        },
+        {
+          id: 4,
+          txt: 'lorem25 Lorem ipsum dolor sit, amet consectetur adipisicing',
+        },
+        {
+          id: 5,
+          txt: 'Hi lorem25 Lorem ipsum dolor sit, amet consectetur adipisicing',
+        },
+      ],
+      newTxt: '',
     },
-    dialogsPage: {
-      dialogs: [
-        { id: 1, name: "Nazar" },
-        { id: 2, name: "Ira" },
-        { id: 3, name: "Ylia" },
-        { id: 4, name: "Oleg" },
-        { id: 5, name: "Volodya" },
-        { id: 6, name: "Ivan" },
+    messages: {
+      dataUsers: [
+        {
+          id: 1,
+          name: 'Nazar Petrow',
+        },
+        {
+          id: 2,
+          name: 'John Doe',
+        },
+        {
+          id: 3,
+          name: 'Gilerme Donaldinyo',
+        },
       ],
-      messages: [
-        { id: 1, message: "Hello" },
-        { id: 2, message: "How are you?" },
-        { id: 3, message: "It is a test" },
-        { id: 4, message: "Hello World" },
+      dataMsg: [
+        {
+          id: 1,
+          msg: 'Hello World!',
+        },
+        {
+          id: 2,
+          msg: 'How are you?',
+        },
+        {
+          id: 3,
+          msg: 'Fine thank you',
+        },
+        {
+          id: 4,
+          msg: 'What are you doing now?',
+        },
+        {
+          id: 5,
+          msg: 'nothing special baby :)',
+        },
+        {
+          id: 6,
+          msg: 'Ok bye',
+        },
+        {
+          id: 7,
+          msg: 'Ok hello',
+        },
       ],
-      newMessageBody: "",
+      newTxt: '',
     },
   },
   _callSubscriber() {
-    console.log("no subscribers");
+    debugger;
+    console.log('no subscribers');
   },
-  // _addPost() {
-  //   const newPost = {
-  //     id: 6,
-  //     message: this._state.profilePage.newPostText,
-  //   };
-  //   this._state.profilePage.postData.push(newPost);
-  //   this._state.profilePage.newPostText = "";
-  //   this._callSubscriber(this._state);
-  // },
-  // _updateNewPostText(newTxt) {
-  //   this._state.profilePage.newPostText = newTxt;
-  //   this._callSubscriber(this._state);
-  // },
-
   getState() {
     return this._state;
   },
@@ -56,12 +109,11 @@ const store = {
   },
 
   dispatch(action) {
-    this._state.profilePage = profileReducer(this._state.profilePage, action);
-    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.profile = profileReducer(this._state.profile, action);
+    this._state.messages = messageReducer(this._state.messages, action);
     this._callSubscriber(this._state);
   },
 };
 
-export default store;
-
 window.store = store;
+export default store;

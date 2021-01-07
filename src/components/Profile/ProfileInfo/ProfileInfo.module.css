@@ -1,0 +1,39 @@
+.postHeader {
+  position: relative;
+  margin-bottom: 70px;
+}
+.imgCover {
+  display: block;
+  min-height: 100px;
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.imgAvatar {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  margin: 10px 10px -40px;
+}
+.imgAvatar img {
+  display: block;
+  width: 120px;
+  height: auto;
+  padding: 4px;
+  background: #fff;
+  border-radius: 10px;
+}
+.imgAvatar span {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  letter-spacing: 0.1rem;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: capitalize;
+  color: #fff;
+}
