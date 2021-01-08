@@ -1,11 +1,54 @@
 .header {
-  padding: 40px 0 25px 40px;
-  /* width: 25vmin; */
   max-width: 300px;
   min-width: 180px;
 }
 
-.header li a {
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 200px;
+  padding: 20px 30px;
+  border-bottom: 1px dotted green;
+}
+.headerInfo .picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  border: 1px solid green;
+  outline: none;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.headerInfo .picture img {
+  display: block;
+  outline: none;
+  border: 5px solid #282a34;
+  border-radius: 50%;
+  max-width: 99%;
+}
+
+.headerInfo .name {
+  font-weight: 800;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.9);
+}
+.headerInfo .name span {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.hearedNav {
+  padding: 20px 0 25px 40px;
+}
+.hearedNav li a {
   position: relative;
   display: block;
   color: rgba(255, 255, 255, 0.5);
@@ -13,7 +56,7 @@
   text-align: left;
   transition: all 0.3s ease;
 }
-.header li a::before {
+.hearedNav li a::before {
   font-family: FontAwesome;
   font-weight: 900;
   position: absolute;
@@ -22,31 +65,31 @@
   display: block;
   transition: all 0.3s ease;
 }
-.header li:nth-child(1) a::before {
+.hearedNav li:nth-child(1) a::before {
   content: '\f121';
 }
-.header li:nth-child(2) a::before {
+.hearedNav li:nth-child(2) a::before {
   content: '\f1d8';
 }
-.header li:nth-child(3) a::before {
+.hearedNav li:nth-child(3) a::before {
   content: '\f1ea';
 }
-.header li:nth-child(4) a::before {
+.hearedNav li:nth-child(4) a::before {
   content: '\f001';
 }
-.header li:nth-child(5) a::before {
+.hearedNav li:nth-child(5) a::before {
   content: '\f02e';
 }
-.header li:nth-child(6) a::before {
+.hearedNav li:nth-child(6) a::before {
   content: '\f007';
 }
-.header li a::after {
+.hearedNav li a::after {
   content: '';
   position: absolute;
   transition: all 0.3s ease;
 }
-.header li a.active::after,
-.header li a:hover::after {
+.hearedNav li a.active::after,
+.hearedNav li a:hover::after {
   right: 0;
   top: 10px;
   display: block;
@@ -55,7 +98,7 @@
   border-top-left-radius: 50%;
   border-bottom-left-radius: 50%;
 }
-.header li a.active,
-.header li a:hover {
+.hearedNav li a.active,
+.hearedNav li a:hover {
   color: rgba(255, 255, 255, 1);
 }

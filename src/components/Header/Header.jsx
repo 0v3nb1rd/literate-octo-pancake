@@ -1,12 +1,21 @@
 import React from 'react';
-// import logo from '/public/images/newspaper.svg';
 import css from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={css.header}>
-      <ul>
+      <div className={css.headerInfo}>
+        <div className={css.picture}>
+          <img src="https://picsum.photos/100/100" alt="profile" />
+        </div>
+        <p className={css.name}>
+          {props.login} <span>{props.email}</span>
+        </p>
+
+        {!props.isAuth ? 'Login' : 'Logout'}
+      </div>
+      <ul className={css.hearedNav}>
         <li>
           <NavLink to="/profile" activeClassName={css.active}>
             Profile
