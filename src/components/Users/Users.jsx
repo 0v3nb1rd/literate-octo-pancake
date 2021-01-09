@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './Users.module.css';
+import { FollowAPI } from '../../API/api';
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -8,7 +9,7 @@ const Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-
+  console.log(props);
   return (
     <>
       <h1 className={css.h1}>Users page</h1>
@@ -32,9 +33,39 @@ const Users = (props) => {
             <div className={css.info}>
               <span className={css.userName}>{usr.name}</span>
               {usr.followed ? (
-                <button onClick={() => props.unfollow(usr.id)}>Unfollow</button>
+                <button
+                  disabled={props.followingInProgress.some(
+                    (id) => id === usr.id
+                  )}
+                  onClick={() => {
+                    props.toggleFollowingProgress(true, usr.id);
+                    FollowAPI.unfollowUser(usr.id).then((resp) => {
+                      if (resp.resultCode === 0) {
+                        props.unfollow(usr.id);
+                        props.toggleFollowingProgress(false, usr.id);
+                      }
+                    });
+                  }}
+                >
+                  Unfollow
+                </button>
               ) : (
-                <button onClick={() => props.follow(usr.id)}>Follow</button>
+                <button
+                  disabled={props.followingInProgress.some(
+                    (id) => id === usr.id
+                  )}
+                  onClick={() => {
+                    props.toggleFollowingProgress(true, usr.id);
+                    FollowAPI.followUser(usr.id).then((resp) => {
+                      if (resp.resultCode === 0) {
+                        props.follow(usr.id);
+                        props.toggleFollowingProgress(false, usr.id);
+                      }
+                    });
+                  }}
+                >
+                  Follow
+                </button>
               )}
             </div>
           </li>

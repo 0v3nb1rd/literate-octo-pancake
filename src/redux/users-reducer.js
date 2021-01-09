@@ -4,6 +4,7 @@ const UNFOOLLOW = 'UNFOOLLOW';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_USER_COUNT = 'SET-USER-COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE-IS-FOLLOWING_PROGRESS';
 
 let initState = {
   users: [],
@@ -11,6 +12,7 @@ let initState = {
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: Boolean,
+  followInProgress: [],
 };
 const usersReducer = (state = initState, action) => {
   switch (action.type) {
@@ -54,6 +56,14 @@ const usersReducer = (state = initState, action) => {
         ...state,
         isFetching: action.isFetch,
       };
+    case TOGGLE_IS_FOLLOWING_PROGRESS:
+      // debugger;
+      return {
+        ...state,
+        followInProgress: action.isFetch
+          ? [...state.followInProgress, action.id]
+          : [],
+      };
     default:
       return state;
   }
@@ -82,6 +92,11 @@ export const setUserCountAC = (totalUsersCount) => ({
 export const fetchingDataAC = (isFetch) => ({
   type: TOGGLE_IS_FETCHING,
   isFetch,
+});
+export const followInProgressAC = (isFetch, id) => ({
+  type: TOGGLE_IS_FOLLOWING_PROGRESS,
+  isFetch,
+  id,
 });
 
 export default usersReducer;
