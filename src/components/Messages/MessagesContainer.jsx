@@ -8,7 +8,8 @@ import {
 const mapStateToProps = (state) => {
   return {
     dataMsg: state.messages.dataMsg,
-    state: state.messages,
+		state: state.messages,
+		auth: state.auth
   };
 };
 const mapDispatchToProps = (dispatch) => {

@@ -3,6 +3,7 @@ import css from './Messages.module.css';
 
 import UserLi from './UserLi/UserLi';
 import MessageLi from './MessageLi/MessageLi';
+import { Redirect } from 'react-router-dom';
 
 const Messages = (props) => {
   let onAddMessage = (e) => {
@@ -12,7 +13,7 @@ const Messages = (props) => {
   let onMessageChange = (e) => {
     props.updateText(e.target.value);
   };
-  // console.log(props);
+  if (!props.auth.isAuth) return <Redirect to="/login" />;
   return (
     <div className={css.messages}>
       <h1 className="title">Mesaages:</h1>

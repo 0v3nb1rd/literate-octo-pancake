@@ -26,15 +26,18 @@ const authReducer = (state = initState, action) => {
 /*----- Action Creators -----*/
 export const setUserDataAC = (id, login, email) => ({
   type: SET_USER_DATA,
-  data: id,
-  login,
-  email,
+  data: { id, login, email },
 });
 
 /*----- Thank Creators -----*/
 export const getUserProfile = () => {
   return (dispatch) => {
-    AuthAPI.getAuth().then((resp) => dispatch(setUserDataAC(resp.data)));
+    AuthAPI.getAuth().then((resp) => {
+      if (resp.data.resultCode === 0) {
+        let { id, login, email } = resp.data.data;
+        dispatch(setUserDataAC(id, login, email));
+      }
+    });
   };
 };
 

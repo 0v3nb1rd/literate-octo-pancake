@@ -26,7 +26,7 @@ export const FollowAPI = {
 
 export const AuthAPI = {
   getAuth() {
-    return instance.get(`auth/me`).then((resp) => resp.data);
+    return instance.get(`auth/me`);
   },
 };
 

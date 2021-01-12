@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { getUserProfile } from '../../redux/profile-reducer';
 import Profile from './Profile';
 // import * as axios from 'axios';
@@ -16,6 +16,7 @@ class ProfileContainer extends React.Component {
     //   });
   }
   render() {
+    if (!this.props.auth.isAuth) return <Redirect to="/login" />;
     return <Profile profile={this.props.profile} {...this.props} />;
   }
 }
@@ -23,6 +24,7 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     profile: state.profilePage.profile,
+    auth: state.auth,
   };
 };
 const mapDispatchToProps = {

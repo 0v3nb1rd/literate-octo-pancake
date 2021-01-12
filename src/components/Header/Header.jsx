@@ -3,6 +3,8 @@ import css from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
+  // console.log(props.isAuth);
+  // alert(props.isAuth);
   return (
     <header className={css.header}>
       <div className={css.headerInfo}>
@@ -16,6 +18,11 @@ const Header = (props) => {
         {!props.isAuth ? 'Login' : 'Logout'}
       </div>
       <ul className={css.hearedNav}>
+        <li>
+          <NavLink to="/login" activeClassName={css.active}>
+            Login
+          </NavLink>
+        </li>
         <li>
           <NavLink to="/profile" activeClassName={css.active}>
             Profile

@@ -8,12 +8,14 @@ import Settings from './components/Settings/Settings';
 import MessagesContainer from './components/Messages/MessagesContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 const App = () => {
   return (
     <div className="App">
       <HeaderContainer />
       <main className="main">
+        <Route path="/login" render={() => <Login />} />
         <Route path="/profile/:id?" render={() => <ProfileContainer />} />
         <Route path="/messages" render={() => <MessagesContainer />} />
         <Route path="/news" component={News} />
