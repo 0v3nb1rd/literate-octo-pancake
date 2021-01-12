@@ -1,36 +1,42 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { UsersAPI } from '../../API/api';
+// import { UsersAPI } from '../../API/api';
 import {
-  followUserAC,
-  setCurrentPageAC,
-  setUsersAC,
-  unfollowUserAC,
-  setUserCountAC,
-  fetchingDataAC,
+  // followUserAC,
+  // setCurrentPageAC,
+  // setUsersAC,
+  // unfollowUserAC,
+  // setUserCountAC,
+  // fetchingDataAC,
   followInProgressAC,
+  getUsers,
+  changePage,
+  follow,
+  unfollow,
 } from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from '../UI/Preloader/Preloader';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.fetchingToggle(true);
-    UsersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(
-      (resp) => {
-        this.props.setUsers(resp.items);
-        this.props.setTotalCount(resp.totalCount);
-        this.props.fetchingToggle(false);
-      }
-    );
+    this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    // this.props.fetchingToggle(true);
+    // UsersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(
+    //   (resp) => {
+    //     this.props.setUsers(resp.items);
+    //     this.props.setTotalCount(resp.totalCount);
+    //     this.props.fetchingToggle(false);
+    //   }
+    // );
   }
   onPageChanged = (itm) => {
-    this.props.fetchingToggle(true);
-    this.props.setPage(itm);
-    UsersAPI.getUsers(itm, this.props.pageSize).then((resp) => {
-      this.props.setUsers(resp.items);
-      this.props.fetchingToggle(false);
-    });
+    this.props.changePage(itm, this.props.pageSize);
+    // this.props.fetchingToggle(true);
+    // this.props.setPage(itm);
+    // UsersAPI.getUsers(itm, this.props.pageSize).then((resp) => {
+    //   this.props.setUsers(resp.items);
+    //   this.props.fetchingToggle(false);
+    // });
   };
   render() {
     return (
@@ -89,13 +95,17 @@ const mapStateToProps = (state) => {
 
 /*-----------------// ? New syntax ActionCreators //-------------*/
 const mapDispatchToProps = {
-  setUsers: setUsersAC,
-  follow: followUserAC,
-  unfollow: unfollowUserAC,
-  setPage: setCurrentPageAC,
-  setTotalCount: setUserCountAC,
-  fetchingToggle: fetchingDataAC,
+  // setUsers: setUsersAC,
+  // follow: followUserAC,
+  // unfollow: unfollowUserAC,
+  // setPage: setCurrentPageAC,
+  // setTotalCount: setUserCountAC,
+  // fetchingToggle: fetchingDataAC,
   toggleFollowingProgress: followInProgressAC,
+  getUsers,
+  changePage,
+  follow,
+  unfollow,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

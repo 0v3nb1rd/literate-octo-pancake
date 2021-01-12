@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import css from './Users.module.css';
-import { FollowAPI } from '../../API/api';
+// import { FollowAPI } from '../../API/api';
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -9,7 +9,6 @@ const Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-  console.log(props);
   return (
     <>
       <h1 className={css.h1}>Users page</h1>
@@ -38,13 +37,15 @@ const Users = (props) => {
                     (id) => id === usr.id
                   )}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, usr.id);
-                    FollowAPI.unfollowUser(usr.id).then((resp) => {
-                      if (resp.resultCode === 0) {
-                        props.unfollow(usr.id);
-                        props.toggleFollowingProgress(false, usr.id);
-                      }
-                    });
+                    props.unfollow(usr.id);
+
+                    // props.toggleFollowingProgress(true, usr.id);
+                    // FollowAPI.unfollowUser(usr.id).then((resp) => {
+                    //   if (resp.resultCode === 0) {
+                    //     props.unfollow(usr.id);
+                    //     props.toggleFollowingProgress(false, usr.id);
+                    //   }
+                    // });
                   }}
                 >
                   Unfollow
@@ -55,13 +56,14 @@ const Users = (props) => {
                     (id) => id === usr.id
                   )}
                   onClick={() => {
-                    props.toggleFollowingProgress(true, usr.id);
-                    FollowAPI.followUser(usr.id).then((resp) => {
-                      if (resp.resultCode === 0) {
-                        props.follow(usr.id);
-                        props.toggleFollowingProgress(false, usr.id);
-                      }
-                    });
+                    props.follow(usr.id);
+                    // props.toggleFollowingProgress(true, usr.id);
+                    // FollowAPI.followUser(usr.id).then((resp) => {
+                    //   if (resp.resultCode === 0) {
+                    //     props.follow(usr.id);
+                    //     props.toggleFollowingProgress(false, usr.id);
+                    //   }
+                    // });
                   }}
                 >
                   Follow

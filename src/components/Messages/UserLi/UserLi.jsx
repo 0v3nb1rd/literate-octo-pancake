@@ -5,12 +5,12 @@ import css from './UserLi.module.css';
 const UserLi = (props) => {
   return (
     <li className={css.userBar}>
-      <a className={css.link}>
+      <span className={css.link}>
         <img
           src="https://www.pinclipart.com/picdir/middle/157-1577650_by-oksmith-thinking-girl-cartoon-png-clipart.png"
           alt="figua"
         />
-      </a>
+      </span>
       <div className={css.info}>
         <span>
           <i className="fa fa-circle"></i>

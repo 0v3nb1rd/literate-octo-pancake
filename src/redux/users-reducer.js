@@ -1,3 +1,5 @@
+import { UsersAPI, FollowAPI } from '../API/api';
+
 const SET_USERS = 'SET-USERS';
 const FOOLLOW = 'FOOLLOW';
 const UNFOOLLOW = 'UNFOOLLOW';
@@ -69,6 +71,7 @@ const usersReducer = (state = initState, action) => {
   }
 };
 
+/*----- Action Creators -----*/
 export const setUsersAC = (users) => ({
   type: SET_USERS,
   users: users,
@@ -98,5 +101,50 @@ export const followInProgressAC = (isFetch, id) => ({
   isFetch,
   id,
 });
+
+/*----- Thunk Creators -----*/
+export const getUsers = (currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(fetchingDataAC(true));
+    UsersAPI.getUsers(currentPage, pageSize).then((resp) => {
+      dispatch(setUsersAC(resp.items));
+      dispatch(setUserCountAC(resp.totalCount));
+      dispatch(fetchingDataAC(false));
+    });
+  };
+};
+export const changePage = (itm, pageSize) => {
+  return (dispatch) => {
+    dispatch(fetchingDataAC(true));
+    dispatch(setCurrentPageAC(itm));
+    UsersAPI.getUsers(itm, pageSize).then((resp) => {
+      dispatch(setUsersAC(resp.items));
+      dispatch(setUserCountAC(resp.totalCount));
+      dispatch(fetchingDataAC(false));
+    });
+  };
+};
+export const follow = (id) => {
+  return (dispatch) => {
+    dispatch(followInProgressAC(true, id));
+    FollowAPI.followUser(id).then((resp) => {
+      if (resp.resultCode === 0) {
+        dispatch(followUserAC(id));
+        dispatch(followInProgressAC(false, id));
+      }
+    });
+  };
+};
+export const unfollow = (id) => {
+  return (dispatch) => {
+    dispatch(followInProgressAC(true, id));
+    FollowAPI.unfollowUser(id).then((resp) => {
+      if (resp.resultCode === 0) {
+        dispatch(unfollowUserAC(id));
+        dispatch(followInProgressAC(false, id));
+      }
+    });
+  };
+};
 
 export default usersReducer;
