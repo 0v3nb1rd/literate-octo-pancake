@@ -1,14 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect, withRouter } from 'react-router-dom';
-import { getUserProfile } from '../../redux/profile-reducer';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'redux';
+// import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import {
+  getUserProfile,
+  getStatus,
+  updateStatus,
+} from '../../redux/profile-reducer';
 import Profile from './Profile';
 // import * as axios from 'axios';
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    let userID = this.props.match.params.id || 11872;
+    let userID = this.props.match.params.id || 13752;
     this.props.getUserProfile(userID);
+    this.props.getStatus(userID);
     // axios
     //   .get(`https://social-network.samuraijs.com/api/1.0/profile/${userID}`) //ID-> 11872
     //   .then((resp) => {
@@ -16,25 +23,42 @@ class ProfileContainer extends React.Component {
     //   });
   }
   render() {
-    if (!this.props.auth.isAuth) return <Redirect to="/login" />;
-    return <Profile profile={this.props.profile} {...this.props} />;
+    return (
+      <Profile
+        profile={this.props.profile}
+        {...this.props}
+        status={this.props.status}
+        updateStatus={this.props.updateStatus}
+      />
+    );
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     profile: state.profilePage.profile,
-    auth: state.auth,
+    status: state.profilePage.status,
+    // auth: state.auth,
   };
 };
 const mapDispatchToProps = {
   // setUserProfile: setUserProfileAC,
   getUserProfile,
+  getStatus,
+  updateStatus,
 };
 
-const ShowTheLocationWithRouter = withRouter(ProfileContainer);
+// const AuthRedirectComponnt = withAuthRedirect(ProfileContainer);
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ShowTheLocationWithRouter);
+// const ShowTheLocationWithRouter = withRouter(AuthRedirectComponnt);
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(ShowTheLocationWithRouter);
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withRouter
+  // withAuthRedirect
+)(ProfileContainer);

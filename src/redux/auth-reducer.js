@@ -1,6 +1,7 @@
 import { AuthAPI } from '../API/api';
 
 const SET_USER_DATA = 'SET-USER-DATA';
+const AUTORIZED = 'AUTORIZED';
 
 const initState = {
   id: null,
@@ -18,6 +19,12 @@ const authReducer = (state = initState, action) => {
         isAuth: true,
       };
     }
+    case AUTORIZED: {
+      return {
+        ...state,
+        id: action.myId,
+      };
+    }
     default:
       return state;
   }
@@ -28,6 +35,10 @@ export const setUserDataAC = (id, login, email) => ({
   type: SET_USER_DATA,
   data: { id, login, email },
 });
+export const autorizedAC = (myId) => ({
+  type: AUTORIZED,
+  myId,
+});
 
 /*----- Thank Creators -----*/
 export const getUserProfile = () => {
@@ -36,6 +47,16 @@ export const getUserProfile = () => {
       if (resp.data.resultCode === 0) {
         let { id, login, email } = resp.data.data;
         dispatch(setUserDataAC(id, login, email));
+      }
+    });
+  };
+};
+
+export const loginUser = (usrData) => {
+  return (dispatch) => {
+    AuthAPI.login(usrData).then((resp) => {
+      if (resp.data.resultCode === 0) {
+        dispatch(autorizedAC(resp.data.userId));
       }
     });
   };

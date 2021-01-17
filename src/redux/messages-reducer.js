@@ -1,5 +1,4 @@
 const ADD_MESSAGE_TXT = 'ADD-MESSAGE-TXT';
-const UPDATE_MESSAGE_TXT = 'UPDATE-MESSAGE-TXT';
 
 const initState = {
   dataUsers: [
@@ -46,36 +45,25 @@ const initState = {
       msg: 'Ok hello',
     },
   ],
-  newTxt: '',
 };
 const messageReducer = (state = initState, action) => {
   switch (action.type) {
-    case UPDATE_MESSAGE_TXT:
-      return {
-        ...state,
-        newTxt: action.txt,
-      };
     case ADD_MESSAGE_TXT:
       return {
         ...state,
         dataMsg: [
           {
             id: Math.floor(Math.random() * 100),
-            msg: state.newTxt,
+            msg: action.text,
           },
           ...state.dataMsg,
         ],
-        newTxt: '',
       };
     default:
       return state;
   }
 };
 
-export const addMessageCreator = () => ({ type: ADD_MESSAGE_TXT });
-export const updateMessageCreator = (value) => ({
-  type: UPDATE_MESSAGE_TXT,
-  txt: value,
-});
+export const addMessageCreator = (text) => ({ type: ADD_MESSAGE_TXT, text });
 
 export default messageReducer;

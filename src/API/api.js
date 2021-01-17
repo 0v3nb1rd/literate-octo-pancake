@@ -28,10 +28,19 @@ export const AuthAPI = {
   getAuth() {
     return instance.get(`auth/me`);
   },
+  login({ email, password, rememberMe }) {
+    return instance.post(`auth/login`, { email, password, rememberMe });
+  },
 };
 
 export const ProfileAPI = {
   getProfile(userID) {
     return axios.get(`${baseURL}profile/${userID}`);
+  },
+  getStatus(userId) {
+    return instance.get(`profile/status/${userId}`);
+  },
+  updateStatus(status) {
+    return instance.put(`profile/status`, { status: status });
   },
 };

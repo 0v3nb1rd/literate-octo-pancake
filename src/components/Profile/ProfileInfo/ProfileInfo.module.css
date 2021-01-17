@@ -10,15 +10,27 @@
   border-radius: 20px;
   overflow: hidden;
 }
+.info {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 10px -50px;
+}
 
-.imgAvatar {
+/* .imgAvatar {
   position: absolute;
   bottom: 0;
   display: flex;
   align-items: flex-end;
   margin: 10px 10px -40px;
+} */
+.info__img {
+  display: flex;
+  align-items: flex-end;
 }
-.imgAvatar img {
+.info__img img {
   display: block;
   width: 120px;
   height: auto;
@@ -26,7 +38,7 @@
   background: #fff;
   border-radius: 10px;
 }
-.imgAvatar span {
+.info__img span {
   margin-left: 20px;
   margin-bottom: 5px;
   font-size: 1.7rem;
@@ -36,4 +48,11 @@
   font-style: italic;
   text-transform: capitalize;
   color: #fff;
+}
+.info__about {
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  letter-spacing: 2px;
+  /* font-size: 1.1em; */
 }

@@ -1,0 +1,25 @@
+.formControll {
+  &.good {
+    color: greenyellow;
+    textarea {
+      border: 2px solid greenyellow;
+    }
+  }
+  &.error {
+    color: red;
+    textarea {
+      border: 2px solid red;
+    }
+  }
+  &.warn {
+    color: orange;
+    textarea {
+      border: 2px solid orange;
+    }
+  }
+  .msg {
+    display: inline-block;
+    margin-bottom: 5px;
+    text-transform: lowercase;
+  }
+}

@@ -1,19 +1,37 @@
 import React from 'react';
 import css from './Messages.module.css';
-
 import UserLi from './UserLi/UserLi';
 import MessageLi from './MessageLi/MessageLi';
-import { Redirect } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form';
+import { TextArea } from '../UI/Forms/FormsControl';
+import { maxLength, required } from '../../helpers/validators';
+
+const maxlength10 = maxLength(10);
+let MsgForm = (props) => {
+  return (
+    <form className={css.addPost} onSubmit={props.handleSubmit}>
+      <fieldset>
+        <legend>Add post</legend>
+        <Field
+          name="text"
+          rows="4"
+          placeholder="Add some text..."
+          validate={[required, maxlength10]}
+          component={TextArea}
+        />
+        <button>add post</button>
+      </fieldset>
+    </form>
+  );
+};
+
+MsgForm = reduxForm({ form: 'msgPage' })(MsgForm);
 
 const Messages = (props) => {
-  let onAddMessage = (e) => {
-    e.preventDefault();
-    props.addNewMessage();
+  let onAddMessage = (formData) => {
+    props.addNewMessage(formData.text);
   };
-  let onMessageChange = (e) => {
-    props.updateText(e.target.value);
-  };
-  if (!props.auth.isAuth) return <Redirect to="/login" />;
+
   return (
     <div className={css.messages}>
       <h1 className="title">Mesaages:</h1>
@@ -23,21 +41,8 @@ const Messages = (props) => {
             <UserLi name={itm.name} key={itm.id} />
           ))}
         </ul>
-
+        <MsgForm onSubmit={onAddMessage} />
         <div className={`${css.box} ${css.boxSec}`}>
-          <form className={css.addPost}>
-            <fieldset>
-              <legend>Add post</legend>
-              <textarea
-                rows="4"
-                onChange={onMessageChange}
-                value={props.state.newTxt}
-                placeholder="Add some text..."
-              />
-              <input onClick={onAddMessage} type="submit" value="add post" />
-            </fieldset>
-          </form>
-
           <ul className={css.list}>
             {props.dataMsg.map((itm) => (
               <MessageLi msg={itm.msg} key={itm.id} />
