@@ -1,6 +1,15 @@
 .loginForm {
-  border: 1px solid red;
+  // border: 1px solid red;
   &__btn {
+    display: block;
     padding: 10px;
+    margin: 0 auto;
+  }
+  .summaryErr {
+    display: inline-block;
+    border: 1px solid red;
+    color: red;
+    padding: 5px 10px;
+    margin: 5px 0;
   }
 }

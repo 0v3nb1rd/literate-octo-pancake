@@ -5,9 +5,10 @@ import css from './Login.module.scss';
 import { loginUser } from '../../redux/auth-reducer';
 import { maxLength, required } from '../../helpers/validators';
 import { Input } from '../UI/Forms/FormsControl';
-const maxLength20 = maxLength(20);
+import { Redirect } from 'react-router-dom';
 
 const LoginForm = (props) => {
+  // console.log(props);
   const { handleSubmit } = props;
   return (
     <form className={css.loginForm} onSubmit={handleSubmit}>
@@ -33,6 +34,7 @@ const LoginForm = (props) => {
         <Field name="rememberMe" type="checkbox" component="input" />
         <span>remember me</span>
       </div>
+      {props.error && <div className={css.summaryErr}>{props.error}</div>}
       <button type="submit" className={css.loginForm__btn}>
         Submit
       </button>
@@ -46,6 +48,7 @@ const Login = (props) => {
     props.loginUser(formData);
     // console.log('Submited', formData);
   };
+  if (props.isAuth) return <Redirect to={'/profile'} />;
   return (
     <main className={css.main}>
       <h1>Login form</h1>
@@ -53,11 +56,9 @@ const Login = (props) => {
     </main>
   );
 };
-
-// LoginForm = reduxForm({ form: 'login' })(LoginForm);
-const mapStateToProps = () => {
-  return {};
-};
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+});
 const mapDispatchToProps = {
   loginUser,
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 // import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import {
   getUserProfile,
@@ -13,7 +14,7 @@ import Profile from './Profile';
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    let userID = this.props.match.params.id || 13752;
+    let userID = this.props.match.params.id || this.props.userId; //|| 13752; ||// this.props.history.push('/login');
     this.props.getUserProfile(userID);
     this.props.getStatus(userID);
     // axios
@@ -38,7 +39,8 @@ const mapStateToProps = (state) => {
   return {
     profile: state.profilePage.profile,
     status: state.profilePage.status,
-    // auth: state.auth,
+    auth: state.auth.isAuth,
+    userId: state.auth.id,
   };
 };
 const mapDispatchToProps = {
@@ -59,6 +61,6 @@ const mapDispatchToProps = {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withRouter
-  // withAuthRedirect
+  withRouter,
+  withAuthRedirect
 )(ProfileContainer);

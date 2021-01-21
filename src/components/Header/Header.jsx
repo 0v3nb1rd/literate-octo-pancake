@@ -3,7 +3,7 @@ import css from './Header.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
-  // console.log(props.isAuth);
+  // console.log(props);
   // alert(props.isAuth);
   return (
     <header className={css.header}>
@@ -14,8 +14,11 @@ const Header = (props) => {
         <p className={css.name}>
           {props.login} <span>{props.email}</span>
         </p>
-
-        {!props.isAuth ? 'Login' : 'Logout'}
+        {!props.isAuth ? (
+          <button>Log-in</button>
+        ) : (
+          <button onClick={() => props.logoutUser()}>Log-out</button>
+        )}
       </div>
       <ul className={css.hearedNav}>
         <li>
