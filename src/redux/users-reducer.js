@@ -103,7 +103,7 @@ export const followInProgressAC = (isFetch, id) => ({
 });
 
 /*----- Thunk Creators -----*/
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(fetchingDataAC(true));
     UsersAPI.getUsers(currentPage, pageSize).then((resp) => {
